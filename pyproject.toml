@@ -1,0 +1,11 @@
+[project]
+name = "vertexgenaieval"
+version = "0.0.1"
+description = "utility to run vertex GenAI eval tasks"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
