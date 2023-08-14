@@ -20,7 +20,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=<service_account_file_location>
 ```
 &nbsp;
 
-Now, we can install the package. Open up a python venv environment, clone this repo and pip install:
+Now, we can install the package. Open up a python environment (i.e. a notebook or a virtual environment), clone the repo and pip install it:
 
 &nbsp;
 ``` bash
@@ -73,14 +73,15 @@ mean_score = evaluator_instance.evaluation_job()
 This package contains 4 evaluator classes to compare the "generated response" vs the "ground truth":
 
 - **SemanticSimilarityEvaluator()** - This metric is useful when determining how similar the two texts are on a semantic basis. This will give a score between 0 and 1. This is a great metric for  evaluating summarization or content retrieval tasks.
-- **BleuEvaluator()** - The [BLEU metric](https://en.wikipedia.org/wiki/BLEU) can help evaluate the token similarity between two texts. In this implementation we are only using the 1-gram BLEU evaluator. Could be used for summarization of content retrieval tasks. 
+- **BleuEvaluator()** - The [BLEU metric](https://en.wikipedia.org/wiki/BLEU) can help evaluate the token similarity between two texts. In this implementation we are only using the 1-gram BLEU evaluator. This metric could be used for summarization of content retrieval tasks. 
 - **ExactMatchEvaluator()** - This metric evalutes an exact match between the two texts. This is useful for classification tasks or tasks expecting exact answers. 
-- **SentimentEvaluator()** - Evaluate sentiment tasks Yes/No tasks. 
+- **SentimentEvaluator()** - Evaluate sentiment tasks or Yes/No tasks. 
 
 ## Some Ideas on Package Extension ##
 
 
-- Integrate with Langchain
+- Integration with Langchain?
+- Ability to create a tuned model with some of the input data before evaluating the model
 - Add Enterprise Search as a model
 - Add 3rd party models
 - Add more Evalutors
