@@ -2,8 +2,7 @@
 
 This package provides utilities that make it easy to perform evaluation tasks with Google Cloud GenAI models. Ideally you will only need a few lines of code to perform a task.
 
-## Requirements 
-___
+## Requirements ##
 
 * A Google Cloud Platform (GCP) project
 * IAM user access to VertexAI
