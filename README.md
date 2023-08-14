@@ -34,6 +34,8 @@ To begin using the package let's instantiate a model object. there are two types
 
 &nbsp;
 ```python
+from vertexgenaieval.classes import models
+
 model_instance =  models.PalmBisonModel(parameters = {"temperature":0.0,
                                                 "top_k":5,
                                                 "top_p":0.8,
@@ -51,6 +53,8 @@ Now let's read the data file and populate generated answers for each row. The pr
 
 &nbsp;
 ```python
+from vertexgenaieval.classes import data
+
 prefix = "summarize the following article: "
 data_instance = data.Data(data_loc="path/to/summarization_sample.jsonl", prefix_question=prefix, context_col="article", ground_truth_col="summary", llm_model=model_instance)
 
@@ -61,6 +65,8 @@ Finally let's do an evaluation task comparing the generated response vs the "gro
 
 &nbsp;
 ```python
+from vertexgenaieval.classes import evaluators
+
 evaluator_instance = evaluators.SemanticSimilarityEvaluator(data=data_instance)
 mean_score = evaluator_instance.evaluation_job()
 
