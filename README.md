@@ -2,7 +2,7 @@
 
 This package provides utilities that facilite evaluation tasks with Google Cloud PaLM LLM models. Ideally you will only need a few lines of code to perform a task.
 
-&nbsp;
+&nbsp;&nbsp;
 ## Requirements ##
 
 * A Google Cloud Platform (GCP) project
@@ -11,7 +11,7 @@ This package provides utilities that facilite evaluation tasks with Google Cloud
 * A "golden dataset" containing a row with the prompt context and another row with "ground truth" answers
 * If evaluating a tuned model, [the tuned model should already be created and deployed](https://cloud.google.com/vertex-ai/docs/generative-ai/models/tune-models). 
 
-&nbsp;
+&nbsp;&nbsp;
 ## How to Run ##
 
 First, we need to authenticate via the terminal. One way to authenticate to GCP is to [create a service account](https://cloud.google.com/iam/docs/keys-create-delete) and download the key file. Then, you can run the terminal command:
@@ -34,7 +34,7 @@ pip install dist/vertexgenaieval-1.0-py3-none-any.whl
 
 To begin using the package let's instantiate a model object. there are two types of models that can be created: a vanilla Palm Text model (not tuned) and a tuned Palm Text model. For the latter you will have to [tune the model on the console or via the API/SDK](https://cloud.google.com/vertex-ai/docs/generative-ai/models/tune-models) before instantiation. 
 
-&nbsp;
+&nbsp; 
 ```python
 from vertexgenaieval.classes import models
 
@@ -73,8 +73,7 @@ evaluator_instance = evaluators.SemanticSimilarityEvaluator(data=data_instance)
 mean_score = evaluator_instance.evaluation_job()
 
 ```
-&nbsp;
-
+&nbsp;&nbsp;
 ## Evaluation Metrics ##
 
 
@@ -85,7 +84,7 @@ This package contains 4 evaluator classes to compare the "generated response" vs
 - **ExactMatchEvaluator()** - This metric evalutes an exact match between the two texts. This is useful for classification tasks or tasks expecting exact answers. 
 - **SentimentEvaluator()** - Evaluate sentiment tasks or Yes/No tasks. 
 
-&nbsp;
+&nbsp; &nbsp;
 ## Some Ideas on Package Extension ##
 
 
