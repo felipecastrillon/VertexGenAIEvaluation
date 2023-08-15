@@ -43,7 +43,7 @@ model_instance =  models.PalmBisonModel(parameters = {"temperature":0.0,
                                                 "top_p":0.8,
                                                 "max_output_tokens":1000}  )
 # or...
-tuned_model_instance = models.PalmBisonModel(parameters = {"temperature":0.0,
+tuned_model_instance = models.PalmBisonTunedModel(parameters = {"temperature":0.0,
                                                 "top_k":5,
                                                 "top_p":0.8,
                                                 "max_output_tokens":1000},
