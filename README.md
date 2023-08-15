@@ -22,13 +22,14 @@ export GOOGLE_APPLICATION_CREDENTIALS=<service_account_file_location>
 ```
 &nbsp;
 
-Now, we can install the package. Open up a python environment (i.e. a notebook or a virtual environment), clone the repo and pip install it:
+Now, we can install the package. Open up a python environment (i.e. a notebook or a virtual environment), clone the repo and pip install it along with the requirements:
 
 &nbsp;
 ``` bash
 git clone https://github.com/felipecastrillon/VertexGenAIEvaluation.git
 cd VertexGenAIEvaluation
 pip install dist/vertexgenaieval-1.0-py3-none-any.whl
+pip install -r requirements.txt
 ```
 &nbsp;
 
