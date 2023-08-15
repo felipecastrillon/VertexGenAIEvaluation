@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from vertexai.language_models import TextGenerationModel
+from vertexai.preview.language_models import TextGenerationModel
 from enum import Enum
 from typing import Any
 from typing import Dict
