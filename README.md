@@ -58,7 +58,7 @@ Now let's read the data file and populate generated answers for each row. The pr
 from vertexgenaieval.classes import data
 
 prefix = "summarize the following article: "
-data_instance = data.Data(data_loc="path/to/summarization_sample.jsonl", prefix_question=prefix, context_col="article", ground_truth_col="summary", llm_model=model_instance)
+data_instance = data.Data(dataloc="path/to/summarization_sample.jsonl", prefix_question=prefix, context_col="article", ground_truth_col="summary", llm_model=model_instance)
 
 ```
 &nbsp;
