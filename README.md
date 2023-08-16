@@ -24,13 +24,14 @@ export GOOGLE_APPLICATION_CREDENTIALS=<service_account_file_location>
 ```
 &nbsp;
 
-Now, we can install the package. Open up a python environment (i.e. a notebook or a virtual environment), clone the repo and pip install it:
+Now, we can install the package. Open up a python environment (i.e. a notebook or a virtual environment), clone the repo and pip install it along with the requirements:
 
 &nbsp;
 ``` bash
 git clone https://github.com/felipecastrillon/VertexGenAIEvaluation.git
 cd VertexGenAIEvaluation
 pip install dist/vertexgenaieval-1.0-py3-none-any.whl
+pip install -r requirements.txt
 ```
 &nbsp;
 
@@ -45,7 +46,7 @@ model_instance =  models.PalmBisonModel(parameters = {"temperature":0.0,
                                                 "top_p":0.8,
                                                 "max_output_tokens":1000}  )
 # or...
-tuned_model_instance = models.PalmBisonModel(parameters = {"temperature":0.0,
+tuned_model_instance = models.PalmBisonTunedModel(parameters = {"temperature":0.0,
                                                 "top_k":5,
                                                 "top_p":0.8,
                                                 "max_output_tokens":1000},
@@ -60,7 +61,7 @@ Now let's read the data file and populate generated answers for each row. The pr
 from vertexgenaieval.classes import data
 
 prefix = "summarize the following article: "
-data_instance = data.Data(data_loc="path/to/summarization_sample.jsonl", prefix_question=prefix, context_col="article", ground_truth_col="summary", llm_model=model_instance)
+data_instance = data.Data(dataloc="path/to/summarization_sample.jsonl", prefix_question=prefix, context_col="article", ground_truth_col="summary", llm_model=model_instance)
 
 ```
 &nbsp;
