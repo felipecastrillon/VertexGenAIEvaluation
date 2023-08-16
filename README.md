@@ -2,6 +2,8 @@
 
 This package provides utilities that facilite evaluation tasks with Google Cloud PaLM LLM models. Ideally you will only need a few lines of code to perform a task.
 
+![alt-text](./images/process.png)
+
 &nbsp;&nbsp;
 ## Requirements ##
 
