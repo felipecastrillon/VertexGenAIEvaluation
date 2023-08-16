@@ -2,6 +2,8 @@
 
 This package provides utilities that facilite evaluation tasks with Google Cloud PaLM LLM models. Ideally you will only need a few lines of code to perform a task.
 
+![alt-text](./images/process.png)
+
 &nbsp;&nbsp;
 ## Requirements ##
 
@@ -60,6 +62,7 @@ from vertexgenaieval.classes import data
 
 prefix = "summarize the following article: "
 data_instance = data.Data(dataloc="path/to/summarization_sample.jsonl", prefix_question=prefix, context_col="article", ground_truth_col="summary", llm_model=model_instance)
+data_instance.generate_model_responses(model_instance)
 
 ```
 &nbsp;
