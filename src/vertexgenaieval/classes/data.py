@@ -1,5 +1,8 @@
 import pandas as pd
 from vertexgenaieval.classes import models
+import tenacity
+from tenacity import * 
+import pdb
 
 class Data():
   
@@ -21,8 +24,19 @@ class Data():
     df = df.rename(columns={context_col: "prompt", ground_truth_col: "ground_truth"})
     df['prompt'] = df['prompt'].apply(lambda x: prefix_question + "\n" + x)
     self.df = df
-
+  
   def generate_model_responses(self, llm_model):
-    self.df[self.model_response_col] = self.df["prompt"].apply(lambda x: llm_model.generate_response(x).text)  
+    self.df[self.model_response_col] = self.df["prompt"].apply(lambda x: self.generate_response(x,llm_model).text)  
+  
 
 
+  @retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
+  def generate_response(self, prompt, model):
+    try:
+      answer=model.generate_response(prompt)
+      return answer 
+    except Exception as e:
+      print(e)
+      raise
+
+    

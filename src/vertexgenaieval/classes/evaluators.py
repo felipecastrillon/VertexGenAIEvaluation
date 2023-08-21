@@ -8,6 +8,8 @@ from sklearn.metrics import f1_score
 import pdb
 from google.cloud import language_v1
 from nltk.translate.bleu_score import sentence_bleu
+import tenacity
+from tenacity import * 
 
 
 class Evaluator(ABC):
@@ -34,12 +36,20 @@ class SemanticSimilarityEvaluator(Evaluator):
     self.set_data(data)    
     self.emb_model = TextEmbeddingModel.from_pretrained("textembedding-gecko@001")
  
+  @retry(stop=stop_after_attempt(3), wait=wait_fixed(5))
   def evaluate_row(self, row):
     if row["model_response"] == '':
       return 0
-    embedding_response = self.emb_model.get_embeddings([row["ground_truth"], row["model_response"]])
+    
+    try:
+      embedding_response = self.emb_model.get_embeddings([row["ground_truth"], row["model_response"]])
+    except Exception as e: 
+      print(e)
+      raise
+
     embeddings = [embedding.values for embedding in embedding_response]    
     return np.dot(embeddings[0], embeddings[1])
+
 
 class ExactMatchEvaluator(Evaluator):
 
